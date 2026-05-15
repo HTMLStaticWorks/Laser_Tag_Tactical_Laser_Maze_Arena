@@ -1,49 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waiver Signing | LazerXtreme</title>
+    <title>Waiver Signing | LazerX</title>
     <link rel="stylesheet" href="index.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
+
 <body>
 
     <header class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>TREME
+                <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Home 1</a></li>
-                <li><a href="arena.html" class="nav-link">Arena Layout</a></li>
-                <li><a href="waiver.html" class="nav-link">Waiver Signing</a></li>
-                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
-            </ul>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home 1</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="party.html" class="nav-link">Party Packages</a></li>
+                    <li><a href="league.html" class="nav-link">League Schedule</a></li>
+                    <li><a href="book.html" class="nav-link">Book Now</a></li>
+                    <li><a href="waiver.html" class="nav-link">Waiver Signing</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div class="toggle-row">
+                        <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                            <i class="fa-solid fa-sun"></i>
+                        </button>
+                        <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+                            <i class="fa-solid fa-right-left"></i>
+                        </button>
+                    </div>
+                    <a href="login.html" class="btn btn-primary">Login</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- 1. Waiver Hero -->
-    <section class="hero" style="min-height: 40vh;">
+    <section class="hero" style="min-height: 50vh;">
+        <div class="hero-bg">
+            <img src="assets/waiver_bg.png" alt="Waiver Background" class="parallax-bg">
+        </div>
+        <div class="hero-overlay"></div>
         <div class="container text-center fade-up">
-            <h1 class="hero-title" style="font-size: 3rem;">SAFETY WAIVER</h1>
-            <p class="text-muted">All operatives must sign the digital waiver before entering the arena.</p>
+            <h1 class="hero-title" style="font-size: 4rem; margin-bottom: 20px;">SAFETY WAIVER</h1>
+            <p class="text-muted" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">All operatives must sign the digital waiver before entering the arena to ensure peak operational safety.</p>
         </div>
     </section>
 
     <!-- 2. Safety Instructions -->
-    <section id="safety" style="background: var(--bg-darker); padding-top: 0;">
+    <section id="safety" style="background: var(--bg-darker); padding: 80px 0;">
         <div class="container fade-up">
             <div class="grid-2" style="align-items: center;">
                 <div>
                     <img src="assets/tactical_players.png" alt="Safety" style="width: 100%; border-radius: 16px;">
                 </div>
-                <div>
-                    <h2 class="section-title" style="text-align: left; left: 0; transform: none;">Operational Safety</h2>
-                    <ul style="line-height: 2; color: var(--text-muted);">
-                        <li><i data-lucide="alert-triangle" style="color: var(--laser-red);"></i> No running in the arena.</li>
-                        <li><i data-lucide="alert-triangle" style="color: var(--laser-red);"></i> Do not climb on the maze walls.</li>
-                        <li><i data-lucide="alert-triangle" style="color: var(--laser-red);"></i> No physical contact with other operatives.</li>
+                <div class="text-center">
+                    <h2 class="section-title" style="text-align: center; width: 100%; left: 50%; transform: translateX(-50%);">Operational Safety</h2>
+                    <ul style="line-height: 2.5; color: var(--text-muted); font-size: 1.1rem; list-style: none; padding: 0; margin-top: 30px;">
+                        <li>No running in the arena.</li>
+                        <li>Do not climb on the maze walls.</li>
+                        <li>No physical contact with other operatives.</li>
                     </ul>
                 </div>
             </div>
@@ -51,27 +85,49 @@
     </section>
 
     <!-- 3. Rules & Regulations -->
-    <section id="rules">
+    <section id="rules" style="position: relative;">
+        <!-- Background Glow -->
+        <div class="bg-shape shape-1" style="top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.2; width: 600px; height: 300px; background: var(--neon-purple); filter: blur(150px);"></div>
+        
         <div class="container fade-up">
             <h2 class="section-title">Rules of Engagement</h2>
-            <div class="glass-card">
-                <p class="text-muted mb-4">By signing this document, you acknowledge the rules of the LazerXtreme tactical arena. Any violation will result in immediate termination of your session without refund.</p>
-                <p class="text-muted">The environment uses strobe lighting, fog machines, and loud sound effects. Players with photosensitive epilepsy or heart conditions should consult a physician before playing.</p>
+            <div class="grid-2" style="margin-top: 40px;">
+                <div class="glass-card" style="border-left: 4px solid var(--electric-blue); display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <i data-lucide="shield-alert" style="color: var(--electric-blue); width: 32px; height: 32px;"></i>
+                        <h3 style="font-size: 1.5rem; color: var(--text-main); margin: 0;">Operational Conduct</h3>
+                    </div>
+                    <p class="text-muted" style="margin: 0; line-height: 1.8;">By signing this document, you acknowledge the rules of the LazerXtreme tactical arena. Any violation will result in immediate termination of your session without refund.</p>
+                </div>
+                <div class="glass-card" style="border-left: 4px solid var(--laser-red); display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <i data-lucide="activity" style="color: var(--laser-red); width: 32px; height: 32px;"></i>
+                        <h3 style="font-size: 1.5rem; color: var(--text-main); margin: 0;">Health & Safety</h3>
+                    </div>
+                    <p class="text-muted" style="margin: 0; line-height: 1.8;">The environment uses strobe lighting and fog. Players with photosensitive epilepsy or heart conditions must consult a physician before engagement.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 4. Guardian Consent -->
-    <section id="guardian" style="background: var(--bg-darker);">
-        <div class="container fade-up">
-            <div class="grid-2">
-                <div>
-                    <h2 class="section-title" style="text-align: left; left: 0; transform: none;">Guardian Consent</h2>
-                    <p class="text-muted">Players under 18 must have a parent or legal guardian sign this waiver on their behalf.</p>
-                </div>
-                <div>
-                    <input type="text" class="form-control mb-4" placeholder="Guardian Full Name">
-                    <input type="text" class="form-control" placeholder="Minor Full Name">
+    <section id="guardian" style="background: var(--bg-darker); position: relative; padding: 100px 0;">
+        <div class="bg-shape shape-2" style="bottom: 0; left: 50%; transform: translateX(-50%); opacity: 0.15; width: 800px; height: 400px; background: var(--electric-blue); filter: blur(150px);"></div>
+        
+        <div class="container text-center fade-up">
+            <h2 class="section-title">Guardian Consent</h2>
+            <p class="text-muted mb-4" style="max-width: 600px; margin-left: auto; margin-right: auto;">Players under 18 must have a parent or legal guardian sign this waiver on their behalf.</p>
+            
+            <div class="glass-card" style="max-width: 700px; margin: 40px auto 0; padding: 40px;">
+                <div class="grid-2">
+                    <div class="form-group" style="text-align: left;">
+                        <label class="text-muted mb-2" style="display: block; font-size: 14px;"><i data-lucide="user" style="width: 14px; height: 14px; margin-right: 5px;"></i> Guardian Name</label>
+                        <input type="text" class="form-control" placeholder="Guardian Full Name">
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label class="text-muted mb-2" style="display: block; font-size: 14px;"><i data-lucide="user-plus" style="width: 14px; height: 14px; margin-right: 5px;"></i> Minor Name</label>
+                        <input type="text" class="form-control" placeholder="Minor Full Name">
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,18 +137,67 @@
     <section id="signature">
         <div class="container text-center fade-up">
             <h2 class="section-title">Digital Signature</h2>
-            <div style="background: #fff; width: 100%; max-width: 600px; height: 200px; margin: 0 auto 20px; border-radius: 12px; cursor: crosshair;"></div>
-            <button class="btn btn-secondary">Clear Signature</button>
+            <canvas id="signature-pad" 
+                style="background: #fff; width: 100%; max-width: 600px; height: 200px; margin: 0 auto 20px; border-radius: 12px; cursor: crosshair; display: block; border: 2px solid var(--bg-card);">
+            </canvas>
+            <div class="signature-btns" style="display: flex; gap: 20px; justify-content: center; align-items: center; margin-top: 20px;">
+                <button id="clear-signature" class="btn btn-secondary">Clear Signature</button>
+                <a href="#" class="btn btn-primary pulse-anim">Submit Waiver</a>
+            </div>
         </div>
     </section>
 
-    <!-- 6. Submission Confirmation -->
-    <section id="submit" style="padding-top: 0;">
-        <div class="container text-center fade-up">
-            <a href="#" class="btn btn-primary pulse-anim" style="padding: 15px 50px;">Submit Waiver</a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="logo mb-4" style="display: inline-flex;">
+                        <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>
+                    </a>
+                    <p class="text-muted mb-4">The ultimate next-generation futuristic laser tag and tactical maze
+                        arena. Immerse yourself in the cyberpunk grid.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="party.html">Party Packages</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="league.html">League Schedule</a></li>
+                        <li><a href="book.html">Book Now</a></li>
+                        <li><a href="waiver.html">Waiver Signing</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Join Comm Link</h4>
+                    <p class="text-muted mb-4">Subscribe for exclusive intel, VIP offers, and tournament updates.</p>
+                    <form class="form-group" style="display: flex; gap: 10px;">
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary" style="padding: 10px; width: 48px;"><i
+                                data-lucide="send"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LazerX Arena. All Rights Reserved. System online.</p>
+            </div>
         </div>
-    </section>
+    </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -32,7 +32,7 @@ A premium, highly immersive website for a futuristic Laser Tag and Tactical Lase
 ## Project Structure
 
 - `index.html`: Landing page.
-- `arena.html`: Arena details and map.
+- `about.html`: Arena details, map, and company information.
 - `book.html`: Booking interface.
 - `league.html`: League and tournament info.
 - `party.html`: Event packages.

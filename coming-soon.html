@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Next Phase Loading | LazerX</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #050505;
+            overflow: hidden;
+        }
+
+        .coming-soon-container {
+            text-align: center;
+            z-index: 2;
+            padding: 40px;
+            max-width: 800px;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--electric-blue);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--glow-blue);
+        }
+
+        .countdown-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            display: block;
+            font-family: var(--font-heading);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .loading-bar-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 40px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-bar-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 75%;
+            background: var(--grad-primary);
+            box-shadow: 0 0 10px var(--electric-blue);
+            animation: pulse-width 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-width {
+            0%, 100% { width: 70%; }
+            50% { width: 80%; }
+        }
+
+        .bg-scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 243, 255, 0.02) 50%);
+            background-size: 100% 4px;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-scanline"></div>
+
+    <div class="coming-soon-container">
+        <a href="index.html" class="logo mb-4" style="font-size: 2.5rem; justify-content: center; color: #fff;">
+            <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>
+        </a>
+        
+        <h1 style="font-size: 3.5rem; margin-bottom: 10px; color: #fff;">NEXT PHASE LOADING...</h1>
+        <p class="text-muted" style="font-size: 1.2rem;">Our ultimate tactical arena expansion is currently undergoing final synchronization. Prepare for deployment.</p>
+
+        <div class="loading-bar-container">
+            <div class="loading-bar-fill"></div>
+        </div>
+
+        <div class="countdown-grid">
+            <div class="countdown-item">
+                <span class="countdown-value">12</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-value">08</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-value">45</span>
+                <span class="countdown-label">Mins</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-value">19</span>
+                <span class="countdown-label">Secs</span>
+            </div>
+        </div>
+
+        <div class="glass-card" style="max-width: 500px; margin: 0 auto; padding: 30px;">
+            <h3 style="margin-bottom: 15px;">Get Deployment Intel</h3>
+            <p class="text-muted mb-4">Be the first to know when the grid goes live and receive exclusive early-access codes.</p>
+            <form class="form-group" style="display: flex; gap: 10px;">
+                <input type="email" class="form-control" placeholder="Enter operative email" required>
+                <button type="submit" class="btn btn-primary" style="padding: 0 25px;">Notify Me</button>
+            </form>
+        </div>
+
+        <a href="index.html" class="btn btn-secondary mt-5" style="border: none; background: transparent;">
+            <i data-lucide="arrow-left"></i> Back to Main Terminal
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | LazerX</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.0.45/dist/lenis.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>
+            </a>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home 1</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="party.html" class="nav-link">Party Packages</a></li>
+                    <li><a href="league.html" class="nav-link">League Schedule</a></li>
+                    <li><a href="book.html" class="nav-link">Book Now</a></li>
+                    <li><a href="waiver.html" class="nav-link">Waiver Signing</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div class="toggle-row">
+                        <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                            <i class="fa-solid fa-sun"></i>
+                        </button>
+                        <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+                            <i class="fa-solid fa-right-left"></i>
+                        </button>
+                    </div>
+                    <a href="login.html" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Arena Overview Hero -->
+    <section class="hero" style="min-height: 80vh;">
+        <div class="hero-bg">
+            <img src="assets/3d_arena_map.png" alt="3D Arena Map" class="parallax-bg" style="opacity: 0.6;">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container text-center relative z-2 fade-up">
+            <h1 class="hero-title">THE BATTLEGRID</h1>
+            <p class="hero-subtitle" style="margin: 0 auto 40px;">Explore our multi-level, 15,000 sq ft tactical arena
+                equipped with state-of-the-art interactive obstacles and glowing barriers.</p>
+        </div>
+    </section>
+
+    <!-- 2. Interactive Zone Layout -->
+    <section id="layout" style="background: var(--bg-darker);">
+        <div class="container">
+            <div class="grid-2" style="align-items: center;">
+                <div class="fade-up">
+                    <img src="assets/ui_dashboard.png" alt="Zone UI"
+                        style="width: 100%; border-radius: 16px; border: 1px solid var(--electric-blue);">
+                </div>
+                <div class="fade-up" style="padding-left: 30px;">
+                    <h2 class="section-title">Sector Alpha</h2>
+                    <p class="text-muted mb-4">The core engagement zone. Features heavy cover and vertical vantage
+                        points perfect for snipers and support roles.</p>
+                    <ul style="color: var(--text-muted); list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                            <i data-lucide="crosshair" style="color: var(--electric-blue); width: 24px; height: 24px;"></i>
+                            <span>3 Multi-level Sniper Nests</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                            <i data-lucide="zap" style="color: var(--neon-purple); width: 24px; height: 24px;"></i>
+                            <span>5 Glowing Node Objectives</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 15px;">
+                            <i data-lucide="shield" style="color: var(--laser-red); width: 24px; height: 24px;"></i>
+                            <span>Interactive Shield Generators</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Tactical Maze Areas -->
+    <section id="maze">
+        <div class="container">
+            <h2 class="section-title fade-up">The Labyrinth</h2>
+            <div class="grid-4 no-gap fade-up">
+                <div style="text-align: center; border-right: 1px solid rgba(255,255,255,0.1);">
+                    <img src="assets/neon_maze.png" alt="Maze Area 1"
+                        style="width:100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 20px;">
+                        <h3 style="color: var(--electric-blue); font-size: 1.2rem; margin-bottom: 10px;">Neon Corridors</h3>
+                        <p class="text-muted" style="font-size: 0.9rem;">Tight spaces requiring quick reflexes.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; border-right: 1px solid rgba(255,255,255,0.1);">
+                    <img src="assets/tactical_players.png" alt="Maze Area 2"
+                        style="width:100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 20px;">
+                        <h3 style="color: var(--neon-purple); font-size: 1.2rem; margin-bottom: 10px;">The Core</h3>
+                        <p class="text-muted" style="font-size: 0.9rem;">Contested central capture points.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; border-right: 1px solid rgba(255,255,255,0.1);">
+                    <img src="assets/hero_arena.png" alt="Maze Area 3"
+                        style="width:100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 20px;">
+                        <h3 style="color: var(--laser-red); font-size: 1.2rem; margin-bottom: 10px;">Red Zone</h3>
+                        <p class="text-muted" style="font-size: 0.9rem;">High-risk multipliers engaged.</p>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <img src="assets/shadow_sector.png" alt="Maze Area 4"
+                        style="width:100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 20px;">
+                        <h3 style="color: #39ff14; font-size: 1.2rem; margin-bottom: 10px;">Shadow Sector</h3>
+                        <p class="text-muted" style="font-size: 0.9rem;">Stealth mode in the darkest regions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Obstacle & Mission Points -->
+    <section id="obstacles" style="background: var(--bg-darker);">
+        <div class="container">
+            <div class="grid-2 fade-up" style="align-items: center;">
+                <div style="text-align: center;">
+                    <h2 class="section-title">Dynamic Objectives</h2>
+                    <p class="text-muted mb-4">Our arena reacts to your gameplay. Base stations change colors, smoke
+                        machines deploy on multi-kills, and laser grids force you to move dynamically.</p>
+                    <a href="book.html" class="btn btn-secondary">Book Your Mission</a>
+                </div>
+                <div>
+                    <img src="assets/laser_guns.png" alt="Equipment"
+                        style="width: 100%; border-radius: 16px; box-shadow: var(--glow-red);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Lighting & Effects Showcase -->
+    <section id="lighting">
+        <div class="container">
+            <h2 class="section-title fade-up">Immersive Atmosphere</h2>
+            <div class="grid-4 fade-up">
+                <div
+                    style="position: relative; height: 250px; border-radius: 16px; overflow: hidden; border: 1px solid var(--electric-blue);">
+                    <img src="assets/party_neon.png" alt="Atmosphere 1"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div
+                    style="position: relative; height: 250px; border-radius: 16px; overflow: hidden; border: 1px solid var(--neon-purple);">
+                    <img src="assets/esports_league.png" alt="Atmosphere 2"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div
+                    style="position: relative; height: 250px; border-radius: 16px; overflow: hidden; border: 1px solid var(--laser-red);">
+                    <img src="assets/combat_action.png" alt="Atmosphere 3"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div
+                    style="position: relative; height: 250px; border-radius: 16px; overflow: hidden; border: 1px solid #39ff14;">
+                    <img src="assets/victory_celebration.png" alt="Atmosphere 4"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Arena Booking CTA -->
+    <section id="cta" style="padding: 0;">
+        <div style="position: relative; padding: 100px 0; overflow: hidden;">
+            <img src="assets/booking_cyberpunk.png" alt="Banner"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: 0;">
+            <div class="container text-center relative z-2">
+                <h2 style="font-size: 3rem; color: #fff; margin-bottom: 20px;">ENTER THE GRID</h2>
+                <a href="book.html" class="btn btn-primary pulse-anim" style="padding: 15px 40px;">Secure Your Pass</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="logo mb-4" style="display: inline-flex;">
+                        <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>
+                    </a>
+                    <p class="text-muted mb-4">The ultimate next-generation futuristic laser tag and tactical maze
+                        arena. Immerse yourself in the cyberpunk grid.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="party.html">Party Packages</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="league.html">League Schedule</a></li>
+                        <li><a href="book.html">Book Now</a></li>
+                        <li><a href="waiver.html">Waiver Signing</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Join Comm Link</h4>
+                    <p class="text-muted mb-4">Subscribe for exclusive intel, VIP offers, and tournament updates.</p>
+                    <form class="form-group" style="display: flex; gap: 10px;">
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary" style="padding: 10px; width: 48px;"><i
+                                data-lucide="send"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LazerX Arena. All Rights Reserved. System online.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
