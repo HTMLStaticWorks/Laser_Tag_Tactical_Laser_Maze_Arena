@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | LazerXtreme</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>TREME
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 1. Contact Hero -->
+    <section class="hero" style="min-height: 40vh;">
+        <div class="hero-bg">
+            <img src="assets/booking_cyberpunk.png" alt="Contact" class="parallax-bg" style="opacity: 0.3;">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container text-center relative z-2 fade-up">
+            <h1 class="hero-title" style="font-size: 3rem;">COMMUNICATIONS</h1>
+            <p class="text-muted">Establish a secure link with our command center.</p>
+        </div>
+    </section>
+
+    <!-- 2. Contact Form + Map -->
+    <section id="contact">
+        <div class="container fade-up">
+            <div class="grid-2">
+                <div class="glass-card" style="border-color: var(--neon-purple);">
+                    <h2 style="font-size: 2rem; margin-bottom: 20px;">Send Intel</h2>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Operative Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="Message Protocol..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Transmit Message</button>
+                    </form>
+                </div>
+                <div>
+                    <div class="glass-card mb-4 text-center">
+                        <i data-lucide="map-pin" style="color: var(--electric-blue); width: 40px; height: 40px; margin-bottom: 10px;"></i>
+                        <h4>HQ Location</h4>
+                        <p class="text-muted">Sector 7G, Cyberpunk City</p>
+                    </div>
+                    <div class="glass-card mb-4 text-center">
+                        <i data-lucide="phone" style="color: var(--neon-purple); width: 40px; height: 40px; margin-bottom: 10px;"></i>
+                        <h4>Direct Line</h4>
+                        <p class="text-muted">1-800-LAZER-XT</p>
+                    </div>
+                    <!-- Placeholder for Map -->
+                    <div style="width: 100%; height: 200px; background: rgba(0,243,255,0.1); border: 1px solid var(--electric-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="map" style="color: var(--electric-blue);"></i> Map Display Offline
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

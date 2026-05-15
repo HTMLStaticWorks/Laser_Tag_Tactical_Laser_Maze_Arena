@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiver Signing | LazerXtreme</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>TREME
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home 1</a></li>
+                <li><a href="arena.html" class="nav-link">Arena Layout</a></li>
+                <li><a href="waiver.html" class="nav-link">Waiver Signing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 1. Waiver Hero -->
+    <section class="hero" style="min-height: 40vh;">
+        <div class="container text-center fade-up">
+            <h1 class="hero-title" style="font-size: 3rem;">SAFETY WAIVER</h1>
+            <p class="text-muted">All operatives must sign the digital waiver before entering the arena.</p>
+        </div>
+    </section>
+
+    <!-- 2. Safety Instructions -->
+    <section id="safety" style="background: var(--bg-darker); padding-top: 0;">
+        <div class="container fade-up">
+            <div class="grid-2" style="align-items: center;">
+                <div>
+                    <img src="assets/tactical_players.png" alt="Safety" style="width: 100%; border-radius: 16px;">
+                </div>
+                <div>
+                    <h2 class="section-title" style="text-align: left; left: 0; transform: none;">Operational Safety</h2>
+                    <ul style="line-height: 2; color: var(--text-muted);">
+                        <li><i data-lucide="alert-triangle" style="color: var(--laser-red);"></i> No running in the arena.</li>
+                        <li><i data-lucide="alert-triangle" style="color: var(--laser-red);"></i> Do not climb on the maze walls.</li>
+                        <li><i data-lucide="alert-triangle" style="color: var(--laser-red);"></i> No physical contact with other operatives.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Rules & Regulations -->
+    <section id="rules">
+        <div class="container fade-up">
+            <h2 class="section-title">Rules of Engagement</h2>
+            <div class="glass-card">
+                <p class="text-muted mb-4">By signing this document, you acknowledge the rules of the LazerXtreme tactical arena. Any violation will result in immediate termination of your session without refund.</p>
+                <p class="text-muted">The environment uses strobe lighting, fog machines, and loud sound effects. Players with photosensitive epilepsy or heart conditions should consult a physician before playing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Guardian Consent -->
+    <section id="guardian" style="background: var(--bg-darker);">
+        <div class="container fade-up">
+            <div class="grid-2">
+                <div>
+                    <h2 class="section-title" style="text-align: left; left: 0; transform: none;">Guardian Consent</h2>
+                    <p class="text-muted">Players under 18 must have a parent or legal guardian sign this waiver on their behalf.</p>
+                </div>
+                <div>
+                    <input type="text" class="form-control mb-4" placeholder="Guardian Full Name">
+                    <input type="text" class="form-control" placeholder="Minor Full Name">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Digital Signature Form -->
+    <section id="signature">
+        <div class="container text-center fade-up">
+            <h2 class="section-title">Digital Signature</h2>
+            <div style="background: #fff; width: 100%; max-width: 600px; height: 200px; margin: 0 auto 20px; border-radius: 12px; cursor: crosshair;"></div>
+            <button class="btn btn-secondary">Clear Signature</button>
+        </div>
+    </section>
+
+    <!-- 6. Submission Confirmation -->
+    <section id="submit" style="padding-top: 0;">
+        <div class="container text-center fade-up">
+            <a href="#" class="btn btn-primary pulse-anim" style="padding: 15px 50px;">Submit Waiver</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Schedule | LazerXtreme</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.0.45/dist/lenis.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        .match-card {
+            background: rgba(10,10,15,0.8);
+            border-left: 4px solid var(--electric-blue);
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 0 10px 10px 0;
+            transition: var(--transition);
+        }
+        .match-card:hover {
+            background: rgba(0, 243, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>TREME
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home 1</a></li>
+                <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                <li><a href="arena.html" class="nav-link">Arena Layout</a></li>
+                <li><a href="party.html" class="nav-link">Party Packages</a></li>
+                <li><a href="league.html" class="nav-link">League Schedule</a></li>
+                <li><a href="book.html" class="nav-link">Book Now</a></li>
+                <li><a href="waiver.html" class="nav-link">Waiver Signing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn"><i data-lucide="sun"></i></button>
+                <button id="rtl-toggle" class="icon-btn"><i data-lucide="languages"></i></button>
+                <a href="book.html" class="btn btn-primary">Book Arena</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. League Hero -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-bg">
+            <img src="assets/esports_league.png" alt="Esports" class="parallax-bg" style="opacity: 0.6;">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container text-center relative z-2 fade-up">
+            <h1 class="hero-title" style="color: var(--neon-purple); text-shadow: var(--glow-purple);">PRO TACTICAL LEAGUE</h1>
+            <p class="hero-subtitle" style="margin: 0 auto;">Join the most competitive laser tag esports league. Cash prizes, legendary glory.</p>
+        </div>
+    </section>
+
+    <!-- 2. Upcoming Matches -->
+    <section id="matches" style="background: var(--bg-darker);">
+        <div class="container">
+            <h2 class="section-title fade-up">Upcoming Matches</h2>
+            <div class="grid-2 fade-up">
+                <div>
+                    <div class="match-card">
+                        <div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px;">Fri, Nov 12 - 20:00</div>
+                            <h4 style="font-size: 1.2rem;">Neon Wolves vs. Cyber Punks</h4>
+                        </div>
+                        <a href="#" class="btn btn-secondary" style="padding: 5px 15px; height: auto;">Watch Live</a>
+                    </div>
+                    <div class="match-card" style="border-left-color: var(--neon-purple);">
+                        <div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px;">Sat, Nov 13 - 18:00</div>
+                            <h4 style="font-size: 1.2rem;">Laser Hawks vs. Grid Runners</h4>
+                        </div>
+                        <a href="#" class="btn btn-secondary" style="padding: 5px 15px; height: auto;">Watch Live</a>
+                    </div>
+                    <div class="match-card" style="border-left-color: var(--laser-red);">
+                        <div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px;">Sun, Nov 14 - 15:00</div>
+                            <h4 style="font-size: 1.2rem;">Red Phantoms vs. The Syndicates</h4>
+                        </div>
+                        <a href="#" class="btn btn-secondary" style="padding: 5px 15px; height: auto;">Watch Live</a>
+                    </div>
+                </div>
+                <div>
+                    <img src="assets/ui_dashboard.png" alt="Bracket" style="width: 100%; border-radius: 16px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Team Rankings -->
+    <section id="rankings">
+        <div class="container">
+            <h2 class="section-title fade-up">Global Standings</h2>
+            <div class="glass-card fade-up" style="padding: 0; overflow: hidden;">
+                <table style="width: 100%; text-align: left; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: rgba(255,255,255,0.05);">
+                            <th style="padding: 20px;">Rank</th>
+                            <th style="padding: 20px;">Team</th>
+                            <th style="padding: 20px;">W/L</th>
+                            <th style="padding: 20px;">Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 20px; color: var(--electric-blue);">1</td>
+                            <td style="padding: 20px; font-weight: bold;">Neon Wolves</td>
+                            <td style="padding: 20px;">12-1</td>
+                            <td style="padding: 20px;">2,450</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 20px; color: var(--neon-purple);">2</td>
+                            <td style="padding: 20px; font-weight: bold;">Cyber Punks</td>
+                            <td style="padding: 20px;">10-3</td>
+                            <td style="padding: 20px;">1,980</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px; color: var(--laser-red);">3</td>
+                            <td style="padding: 20px; font-weight: bold;">Red Phantoms</td>
+                            <td style="padding: 20px;">9-4</td>
+                            <td style="padding: 20px;">1,850</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Tournament Brackets -->
+    <section id="bracket" style="background: var(--bg-darker);">
+        <div class="container text-center fade-up">
+            <h2 class="section-title">Championship Bracket</h2>
+            <img src="assets/3d_arena_map.png" alt="Bracket Map" style="width: 100%; max-width: 800px; border-radius: 16px; border: 1px solid var(--electric-blue);">
+        </div>
+    </section>
+
+    <!-- 5. MVP Players Showcase -->
+    <section id="mvp">
+        <div class="container">
+            <h2 class="section-title fade-up">Hall of Fame</h2>
+            <div class="grid-4 fade-up">
+                <div class="glass-card text-center">
+                    <img src="assets/holographic_profile.png" alt="MVP 1" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px;">
+                    <h4>Viper</h4>
+                    <p class="text-muted">Neon Wolves</p>
+                </div>
+                <div class="glass-card text-center">
+                    <img src="assets/holographic_profile.png" alt="MVP 2" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px; filter: hue-rotate(90deg);">
+                    <h4>Ghost</h4>
+                    <p class="text-muted">Cyber Punks</p>
+                </div>
+                <div class="glass-card text-center">
+                    <img src="assets/tactical_players.png" alt="MVP 3" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px; object-fit: cover;">
+                    <h4>Reaper</h4>
+                    <p class="text-muted">Red Phantoms</p>
+                </div>
+                <div class="glass-card text-center">
+                    <img src="assets/hero_arena.png" alt="MVP 4" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px; object-fit: cover;">
+                    <h4>Striker</h4>
+                    <p class="text-muted">Laser Hawks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Join League CTA -->
+    <section id="cta" style="padding: 0;">
+        <div style="position: relative; padding: 100px 0; overflow: hidden;">
+            <img src="assets/booking_cyberpunk.png" alt="Banner" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: 0;">
+            <div class="container text-center relative z-2">
+                <h2 style="font-size: 3rem; color: #fff; margin-bottom: 20px;">ASSEMBLE YOUR SQUAD</h2>
+                <a href="register.html" class="btn btn-primary pulse-anim" style="padding: 15px 40px;">Register Team</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

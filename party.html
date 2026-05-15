@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Packages | LazerXtreme</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.0.45/dist/lenis.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--electric-blue);
+            box-shadow: var(--glow-blue);
+        }
+        .pricing-card.popular {
+            border-color: var(--neon-purple);
+            box-shadow: var(--glow-purple);
+            position: relative;
+        }
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--grad-primary);
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="crosshair"></i> LAZER<span style="color: var(--electric-blue)">X</span>TREME
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home 1</a></li>
+                <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                <li><a href="arena.html" class="nav-link">Arena Layout</a></li>
+                <li><a href="party.html" class="nav-link">Party Packages</a></li>
+                <li><a href="league.html" class="nav-link">League Schedule</a></li>
+                <li><a href="book.html" class="nav-link">Book Now</a></li>
+                <li><a href="waiver.html" class="nav-link">Waiver Signing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn"><i data-lucide="sun"></i></button>
+                <button id="rtl-toggle" class="icon-btn"><i data-lucide="languages"></i></button>
+                <a href="book.html" class="btn btn-primary">Book Arena</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Banner -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-bg">
+            <img src="assets/party_neon.png" alt="Party" class="parallax-bg" style="opacity: 0.5;">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container text-center relative z-2 fade-up">
+            <h1 class="hero-title">NEXT-GEN PARTIES</h1>
+            <p class="hero-subtitle" style="margin: 0 auto;">Birthdays, corporate events, and VIP gatherings in the cyberpunk universe.</p>
+        </div>
+    </section>
+
+    <!-- 2. Birthday Packages -->
+    <section id="birthday" style="background: var(--bg-darker);">
+        <div class="container">
+            <h2 class="section-title fade-up">Birthday Packages</h2>
+            <div class="grid-3 fade-up">
+                <div class="pricing-card">
+                    <h3 style="font-size: 1.5rem; color: #fff;">Cadet</h3>
+                    <div style="font-size: 2.5rem; color: var(--electric-blue); font-weight: bold; margin: 20px 0;">$199</div>
+                    <ul style="text-align: left; color: var(--text-muted); margin-bottom: 30px; line-height: 2;">
+                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> Up to 10 players</li>
+                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> 2 Laser Tag Games</li>
+                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> Reserved Party Table (1hr)</li>
+                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> Standard Gear</li>
+                    </ul>
+                    <a href="book.html" class="btn btn-secondary" style="width: 100%;">Select Cadet</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <h3 style="font-size: 1.5rem; color: #fff;">Commander</h3>
+                    <div style="font-size: 2.5rem; color: var(--neon-purple); font-weight: bold; margin: 20px 0;">$349</div>
+                    <ul style="text-align: left; color: var(--text-muted); margin-bottom: 30px; line-height: 2;">
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> Up to 15 players</li>
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> 3 Laser Tag Games</li>
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> VIP Lounge Access (2hr)</li>
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> Neon Drinks included</li>
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> Holographic Invitations</li>
+                    </ul>
+                    <a href="book.html" class="btn btn-primary" style="width: 100%;">Select Commander</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 style="font-size: 1.5rem; color: #fff;">Overlord</h3>
+                    <div style="font-size: 2.5rem; color: var(--laser-red); font-weight: bold; margin: 20px 0;">$599</div>
+                    <ul style="text-align: left; color: var(--text-muted); margin-bottom: 30px; line-height: 2;">
+                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Up to 25 players</li>
+                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Unlimited Games (3hr)</li>
+                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Exclusive Arena Access</li>
+                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Dedicated Host</li>
+                    </ul>
+                    <a href="book.html" class="btn btn-secondary" style="width: 100%;">Select Overlord</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Corporate Team Packages -->
+    <section id="corporate">
+        <div class="container">
+            <div class="grid-2" style="align-items: center;">
+                <div class="fade-up">
+                    <h2 class="section-title" style="text-align: left; left: 0; transform: none;">Corporate Raids</h2>
+                    <p class="text-muted mb-4">Team building meets intense tactical combat. Improve communication and strategy in a high-adrenaline environment.</p>
+                    <a href="contact.html" class="btn btn-secondary">Request Corporate Quote</a>
+                </div>
+                <div class="fade-up">
+                    <img src="assets/vip_lounge.png" alt="Corporate" style="width: 100%; border-radius: 16px; border: 1px solid var(--electric-blue);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. VIP Add-ons -->
+    <section id="addons" style="background: var(--bg-darker);">
+        <div class="container text-center">
+            <h2 class="section-title fade-up">VIP Upgrades</h2>
+            <div class="grid-4 fade-up">
+                <div class="glass-card">
+                    <img src="assets/holographic_profile.png" alt="Card" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                    <h4>Custom Dog Tags</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">$15/player</p>
+                </div>
+                <div class="glass-card">
+                    <img src="assets/laser_guns.png" alt="Guns" style="width: 100%; border-radius: 8px; margin-bottom: 15px; height: 120px; object-fit: cover;">
+                    <h4>Blaster Upgrade</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">$10/player</p>
+                </div>
+                <div class="glass-card">
+                    <img src="assets/neon_maze.png" alt="Maze" style="width: 100%; border-radius: 8px; margin-bottom: 15px; height: 120px; object-fit: cover;">
+                    <h4>Smoke & Lasers</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">$50/session</p>
+                </div>
+                <div class="glass-card">
+                    <img src="assets/tactical_players.png" alt="Players" style="width: 100%; border-radius: 8px; margin-bottom: 15px; height: 120px; object-fit: cover;">
+                    <h4>Drone Recording</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">$150/session</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Food & Gaming Combos -->
+    <section id="food">
+        <div class="container">
+            <div class="grid-2 fade-up">
+                <div>
+                    <img src="assets/hero_arena.png" alt="Food" style="width: 100%; border-radius: 16px;">
+                </div>
+                <div style="padding-left: 30px;">
+                    <h2 class="section-title" style="text-align: left; left: 0; transform: none;">Fuel Your Squad</h2>
+                    <p class="text-muted mb-4">Add catering to any package. We offer cyberpunk-themed pizzas, neon glowing beverages, and cyber-snacks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Booking CTA -->
+    <section id="cta" style="padding: 0;">
+        <div style="position: relative; padding: 100px 0; overflow: hidden;">
+            <img src="assets/booking_cyberpunk.png" alt="Banner" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: 0;">
+            <div class="container text-center relative z-2">
+                <h2 style="font-size: 3rem; color: #fff; margin-bottom: 20px;">READY TO CELEBRATE?</h2>
+                <a href="book.html" class="btn btn-primary pulse-anim" style="padding: 15px 40px;">Book Event Now</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
