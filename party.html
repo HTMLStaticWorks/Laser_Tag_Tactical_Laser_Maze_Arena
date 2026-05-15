@@ -59,6 +59,26 @@
             font-size: 0.9rem;
             font-weight: bold;
         }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: left;
+            color: var(--text-muted);
+        }
+
+        .pricing-card ul li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .pricing-card ul li i {
+            flex-shrink: 0;
+        }
     </style>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -126,15 +146,11 @@
                     <h3 style="font-size: 1.5rem; color: var(--text-main);">Cadet</h3>
                     <div style="font-size: 2.5rem; color: var(--electric-blue); font-weight: bold; margin: 20px 0;">$199
                     </div>
-                    <ul style="text-align: left; color: var(--text-muted); margin-bottom: 30px; line-height: 2;">
-                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> Up to 10
-                            players</li>
-                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> 2 Laser Tag
-                            Games</li>
-                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> Reserved Party
-                            Table (1hr)</li>
-                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> Standard Gear
-                        </li>
+                    <ul>
+                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> Up to 10 players</li>
+                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> 2 Laser Tag Games</li>
+                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> Reserved Party Table (1hr)</li>
+                        <li><i data-lucide="check" style="color: var(--electric-blue); width: 16px;"></i> Standard Gear</li>
                     </ul>
                     <a href="book.html" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Select Cadet</a>
                 </div>
@@ -144,17 +160,12 @@
                     <h3 style="font-size: 1.5rem; color: var(--text-main);">Commander</h3>
                     <div style="font-size: 2.5rem; color: var(--neon-purple); font-weight: bold; margin: 20px 0;">$349
                     </div>
-                    <ul style="text-align: left; color: var(--text-muted); margin-bottom: 30px; line-height: 2;">
-                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> Up to 15 players
-                        </li>
-                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> 3 Laser Tag
-                            Games</li>
-                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> VIP Lounge
-                            Access (2hr)</li>
-                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> Neon Drinks
-                            included</li>
-                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> Holographic
-                            Invitations</li>
+                    <ul>
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> Up to 15 players</li>
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> 3 Laser Tag Games</li>
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> VIP Lounge Access (2hr)</li>
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> Neon Drinks included</li>
+                        <li><i data-lucide="check" style="color: var(--neon-purple); width: 16px;"></i> Holographic Invitations</li>
                     </ul>
                     <a href="book.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Select Commander</a>
                 </div>
@@ -163,15 +174,11 @@
                     <h3 style="font-size: 1.5rem; color: var(--text-main);">Overlord</h3>
                     <div style="font-size: 2.5rem; color: var(--laser-red); font-weight: bold; margin: 20px 0;">$599
                     </div>
-                    <ul style="text-align: left; color: var(--text-muted); margin-bottom: 30px; line-height: 2;">
-                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Up to 25 players
-                        </li>
-                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Unlimited Games
-                            (3hr)</li>
-                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Exclusive Arena
-                            Access</li>
-                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Dedicated Host
-                        </li>
+                    <ul>
+                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Up to 25 players</li>
+                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Unlimited Games (3hr)</li>
+                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Exclusive Arena Access</li>
+                        <li><i data-lucide="check" style="color: var(--laser-red); width: 16px;"></i> Dedicated Host</li>
                     </ul>
                     <a href="book.html" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Select Overlord</a>
                 </div>
