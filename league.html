@@ -11,38 +11,157 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
-        .match-card {
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             background: var(--bg-glass);
-            border-left: 4px solid var(--electric-blue);
-            padding: 20px;
+            border-radius: 12px;
+            padding: 20px 30px;
             margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        [data-theme='light'] .schedule-item {
+            background: rgba(0,0,0,0.02);
+            border-color: rgba(0,0,0,0.1);
+        }
+        .schedule-item:hover {
+            border-color: var(--neon-purple);
+            box-shadow: var(--glow-purple);
+            transform: translateY(-2px);
+        }
+        .schedule-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding-right: 20px;
+        }
+        [data-theme='light'] .schedule-date {
+            border-right: 1px solid rgba(0,0,0,0.1);
+        }
+        .date-day {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            letter-spacing: 1px;
+        }
+        .date-time {
+            color: var(--electric-blue);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .schedule-teams {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex: 1;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 0 20px;
+        }
+        .team-name {
+            color: var(--text-main);
+            flex: 1;
+        }
+        .team-name.left { text-align: right; }
+        .team-name.right { text-align: left; }
+        .vs-badge {
+            background: var(--bg-dark);
+            border: 1px solid var(--electric-blue);
+            color: var(--electric-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            box-shadow: var(--glow-blue);
+        }
+        @media (max-width: 768px) {
+            .schedule-item { flex-direction: column; gap: 20px; text-align: center; }
+            .schedule-date { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-right: 0; padding-bottom: 15px; }
+            .schedule-teams { flex-direction: column; gap: 10px; }
+            .team-name.left, .team-name.right { text-align: center; }
+        }
+
+        /* Bracket Styles */
+        .bracket-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            gap: 40px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+        .bracket-round {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 30px;
+        }
+        .bracket-round:nth-child(2) {
+            gap: 60px;
+        }
+        .bracket-round:nth-child(3) {
+            gap: 120px;
+        }
+        .bracket-match {
+            background: var(--bg-glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            width: 250px;
+            position: relative;
+            transition: var(--transition);
+        }
+        [data-theme='light'] .bracket-match {
+            background: rgba(0,0,0,0.02);
+            border-color: rgba(0,0,0,0.1);
+        }
+        .bracket-match:hover {
+            border-color: var(--electric-blue);
+            box-shadow: var(--glow-blue);
+            transform: scale(1.02);
+        }
+        .bracket-team {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            border-radius: 0 10px 10px 0;
-            transition: var(--transition);
-            color: var(--text-main);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        [data-theme='light'] .match-card {
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background: rgba(0, 0, 0, 0.02);
-        }
-
-        .match-card h4 {
+            padding: 10px 0;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
             color: var(--text-main);
         }
-
-        .match-card .match-date {
+        .bracket-team:first-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        [data-theme='light'] .bracket-team:first-child {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .team-score {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 5px;
+            font-weight: 700;
         }
-
-        .match-card:hover {
-            background: rgba(0, 243, 255, 0.1);
+        .team-score.winner {
+            color: var(--electric-blue);
+        }
+        .team-name-b.winner {
+            color: var(--neon-purple);
+        }
+        .round-title {
+            text-align: center;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            font-family: var(--font-heading);
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
         }
     </style>
     <!-- Font Awesome CDN -->
@@ -103,37 +222,107 @@
         </div>
     </section>
 
+    <!-- 1.5 Season Info & Team Formats -->
+    <section id="season-info" style="background: var(--bg-dark);">
+        <div class="container fade-up">
+            <h2 class="section-title">Season 4 Intel</h2>
+            <div class="grid-2">
+                <div class="glass-card" style="border-color: var(--electric-blue);">
+                    <h3 style="color: var(--electric-blue); font-size: 1.5rem; margin-bottom: 15px;"><i data-lucide="info" style="vertical-align: middle; margin-right: 10px;"></i>Season Information</h3>
+                    <p class="text-muted mb-4">The highly anticipated Season 4 brings new challenges, updated maze configurations, and the largest prize pool yet. Prepare your squads for intense tactical combat.</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><i data-lucide="calendar" style="color: var(--neon-purple);"></i> <strong style="color: var(--text-main);">Start Date:</strong> Jan 15, 2027</li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><i data-lucide="clock" style="color: var(--neon-purple);"></i> <strong style="color: var(--text-main);">Duration:</strong> 8 Weeks Regular Play</li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><i data-lucide="trophy" style="color: var(--neon-purple);"></i> <strong style="color: var(--text-main);">Prize Pool:</strong> $10,000 + Sponsorships</li>
+                    </ul>
+                </div>
+                <div class="glass-card" style="border-color: var(--laser-red);">
+                    <h3 style="color: var(--laser-red); font-size: 1.5rem; margin-bottom: 15px;"><i data-lucide="users" style="vertical-align: middle; margin-right: 10px;"></i>Team Formats</h3>
+                    <p class="text-muted mb-4">Choose your division based on your squad's size and tactical preference. All formats feature objective-based game modes.</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><i data-lucide="crosshair" style="color: var(--electric-blue);"></i> <strong style="color: var(--text-main);">2v2 Wingman:</strong> Fast-paced, high intensity</li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><i data-lucide="crosshair" style="color: var(--electric-blue);"></i> <strong style="color: var(--text-main);">4v4 Standard:</strong> Classic competitive format</li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><i data-lucide="crosshair" style="color: var(--electric-blue);"></i> <strong style="color: var(--text-main);">6v6 Siege:</strong> Large-scale strategic warfare</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1.6 Weekly Schedule -->
+    <section id="weekly-schedule" style="background: var(--bg-glass);">
+        <div class="container fade-up">
+            <h2 class="section-title">Weekly Routine</h2>
+            <div class="grid-4 text-center">
+                <div class="glass-card">
+                    <h4 style="color: var(--electric-blue); font-size: 1.2rem; margin-bottom: 10px;">Tuesday</h4>
+                    <p class="text-muted">Open Practice</p>
+                    <p style="font-weight: bold; margin-top: 5px; color: var(--text-main);">18:00 - 22:00</p>
+                </div>
+                <div class="glass-card" style="border-color: var(--neon-purple); box-shadow: var(--glow-purple);">
+                    <h4 style="color: var(--neon-purple); font-size: 1.2rem; margin-bottom: 10px;">Thursday</h4>
+                    <p class="text-muted">Qualifier Matches</p>
+                    <p style="font-weight: bold; margin-top: 5px; color: var(--text-main);">19:00 - 23:00</p>
+                </div>
+                <div class="glass-card">
+                    <h4 style="color: var(--electric-blue); font-size: 1.2rem; margin-bottom: 10px;">Saturday</h4>
+                    <p class="text-muted">League Playdays</p>
+                    <p style="font-weight: bold; margin-top: 5px; color: var(--text-main);">14:00 - 20:00</p>
+                </div>
+                <div class="glass-card">
+                    <h4 style="color: var(--laser-red); font-size: 1.2rem; margin-bottom: 10px;">Sunday</h4>
+                    <p class="text-muted">Championship Finals</p>
+                    <p style="font-weight: bold; margin-top: 5px; color: var(--text-main);">15:00 - 18:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 2. Upcoming Matches -->
     <section id="matches" style="background: var(--bg-darker);">
         <div class="container">
-            <h2 class="section-title fade-up">Upcoming Matches</h2>
-            <div class="grid-2 fade-up" style="align-items: center;">
-                <div style="text-align: center;">
-                    <div class="match-card" style="flex-direction: column; text-align: center; border-left: none; border-top: 4px solid var(--electric-blue); border-radius: 10px;">
-                        <div style="margin-bottom: 10px;">
-                            <div class="match-date">Fri, Nov 12 - 20:00</div>
-                            <h4 style="font-size: 1.2rem;">Neon Wolves vs. Cyber Punks</h4>
-                        </div>
-                        <a href="#" class="btn btn-secondary" style="padding: 5px 15px; height: auto; width: fit-content; margin: 0 auto;">Watch Live</a>
+            <h2 class="section-title fade-up">League Schedule</h2>
+            <div class="fade-up" style="max-width: 900px; margin: 0 auto;">
+                
+                <div class="schedule-item">
+                    <div class="schedule-date">
+                        <span class="date-day">FRI, NOV 12</span>
+                        <span class="date-time">20:00 EST</span>
                     </div>
-                    <div class="match-card" style="flex-direction: column; text-align: center; border-left: none; border-top: 4px solid var(--neon-purple); border-radius: 10px;">
-                        <div style="margin-bottom: 10px;">
-                            <div class="match-date">Sat, Nov 13 - 18:00</div>
-                            <h4 style="font-size: 1.2rem;">Laser Hawks vs. Grid Runners</h4>
-                        </div>
-                        <a href="#" class="btn btn-secondary" style="padding: 5px 15px; height: auto; width: fit-content; margin: 0 auto;">Watch Live</a>
+                    <div class="schedule-teams">
+                        <span class="team-name left">Neon Wolves</span>
+                        <span class="vs-badge">VS</span>
+                        <span class="team-name right">Cyber Punks</span>
                     </div>
-                    <div class="match-card" style="flex-direction: column; text-align: center; border-left: none; border-top: 4px solid var(--laser-red); border-radius: 10px;">
-                        <div style="margin-bottom: 10px;">
-                            <div class="match-date">Sun, Nov 14 - 15:00</div>
-                            <h4 style="font-size: 1.2rem;">Red Phantoms vs. The Syndicates</h4>
-                        </div>
-                        <a href="#" class="btn btn-secondary" style="padding: 5px 15px; height: auto; width: fit-content; margin: 0 auto;">Watch Live</a>
-                    </div>
+                    <a href="#" class="btn btn-secondary" style="padding: 10px 20px;">Watch Live</a>
                 </div>
-                <div>
-                    <img src="assets/ui_dashboard.png" alt="Bracket" style="width: 100%; border-radius: 16px;">
+
+                <div class="schedule-item">
+                    <div class="schedule-date">
+                        <span class="date-day">SAT, NOV 13</span>
+                        <span class="date-time">18:00 EST</span>
+                    </div>
+                    <div class="schedule-teams">
+                        <span class="team-name left">Laser Hawks</span>
+                        <span class="vs-badge">VS</span>
+                        <span class="team-name right">Grid Runners</span>
+                    </div>
+                    <a href="#" class="btn btn-secondary" style="padding: 10px 20px;">Watch Live</a>
                 </div>
+
+                <div class="schedule-item">
+                    <div class="schedule-date">
+                        <span class="date-day">SUN, NOV 14</span>
+                        <span class="date-time">15:00 EST</span>
+                    </div>
+                    <div class="schedule-teams">
+                        <span class="team-name left">Red Phantoms</span>
+                        <span class="vs-badge">VS</span>
+                        <span class="team-name right">The Syndicates</span>
+                    </div>
+                    <a href="#" class="btn btn-secondary" style="padding: 10px 20px;">Watch Live</a>
+                </div>
+
             </div>
         </div>
     </section>
@@ -181,10 +370,96 @@
 
     <!-- 4. Tournament Brackets -->
     <section id="bracket" style="background: var(--bg-darker);">
-        <div class="container text-center fade-up">
+        <div class="container fade-up">
             <h2 class="section-title">Championship Bracket</h2>
-            <img src="assets/3d_arena_map.png" alt="Bracket Map"
-                style="width: 100%; max-width: 800px; border-radius: 16px; border: 1px solid var(--electric-blue);">
+            
+            <div class="bracket-container">
+                <!-- Quarterfinals -->
+                <div class="bracket-round">
+                    <div class="round-title">Quarterfinals</div>
+                    <div class="bracket-match">
+                        <div class="bracket-team">
+                            <span class="team-name-b winner">Neon Wolves</span>
+                            <span class="team-score winner">3</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span class="team-name-b">Delta Squad</span>
+                            <span class="team-score">1</span>
+                        </div>
+                    </div>
+                    <div class="bracket-match">
+                        <div class="bracket-team">
+                            <span class="team-name-b">Grid Runners</span>
+                            <span class="team-score">0</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span class="team-name-b winner">Laser Hawks</span>
+                            <span class="team-score winner">3</span>
+                        </div>
+                    </div>
+                    <div class="bracket-match">
+                        <div class="bracket-team">
+                            <span class="team-name-b winner">Cyber Punks</span>
+                            <span class="team-score winner">2</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span class="team-name-b">The Syndicates</span>
+                            <span class="team-score">1</span>
+                        </div>
+                    </div>
+                    <div class="bracket-match">
+                        <div class="bracket-team">
+                            <span class="team-name-b">Nova Strike</span>
+                            <span class="team-score">1</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span class="team-name-b winner">Red Phantoms</span>
+                            <span class="team-score winner">3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semifinals -->
+                <div class="bracket-round">
+                    <div class="round-title">Semifinals</div>
+                    <div class="bracket-match">
+                        <div class="bracket-team">
+                            <span class="team-name-b winner">Neon Wolves</span>
+                            <span class="team-score winner">3</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span class="team-name-b">Laser Hawks</span>
+                            <span class="team-score">2</span>
+                        </div>
+                    </div>
+                    <div class="bracket-match">
+                        <div class="bracket-team">
+                            <span class="team-name-b">Cyber Punks</span>
+                            <span class="team-score">1</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span class="team-name-b winner">Red Phantoms</span>
+                            <span class="team-score winner">3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grand Final -->
+                <div class="bracket-round">
+                    <div class="round-title" style="color: var(--neon-purple); text-shadow: var(--glow-purple);">Grand Final</div>
+                    <div class="bracket-match" style="border-color: var(--neon-purple); box-shadow: var(--glow-purple);">
+                        <div class="bracket-team">
+                            <span class="team-name-b">Neon Wolves</span>
+                            <span class="team-score">-</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span class="team-name-b">Red Phantoms</span>
+                            <span class="team-score">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -194,29 +469,79 @@
             <h2 class="section-title fade-up">Hall of Fame</h2>
             <div class="grid-4 fade-up">
                 <div class="glass-card text-center">
-                    <img src="assets/holographic_profile.png" alt="MVP 1"
+                    <img src="assets/ui_dashboard.png" alt="MVP 1"
                         style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px;">
                     <h4>Viper</h4>
                     <p class="text-muted">Neon Wolves</p>
                 </div>
                 <div class="glass-card text-center">
-                    <img src="assets/holographic_profile.png" alt="MVP 2"
+                    <img src="assets/3d_arena_map.png" alt="MVP 2"
                         style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px; filter: hue-rotate(90deg);">
                     <h4>Ghost</h4>
                     <p class="text-muted">Cyber Punks</p>
                 </div>
                 <div class="glass-card text-center">
-                    <img src="assets/tactical_players.png" alt="MVP 3"
+                    <img src="assets/holographic_profile.png" alt="MVP 3"
                         style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px; object-fit: cover;">
                     <h4>Reaper</h4>
                     <p class="text-muted">Red Phantoms</p>
                 </div>
                 <div class="glass-card text-center">
-                    <img src="assets/hero_arena.png" alt="MVP 4"
+                    <img src="assets/holographic_profile.png" alt="MVP 4"
                         style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px; object-fit: cover;">
                     <h4>Striker</h4>
                     <p class="text-muted">Laser Hawks</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5.4 Team Requirements -->
+    <section id="team-requirements" style="padding-top: 0;">
+        <div class="container fade-up">
+            <div class="glass-card" style="border-left: 4px solid var(--electric-blue);">
+                <h3 style="font-size: 1.5rem; color: var(--electric-blue); margin-bottom: 15px;"><i data-lucide="users" style="vertical-align: middle; margin-right: 10px;"></i>Official Team Requirements</h3>
+                <p class="text-muted mb-4">To participate in the Pro Tactical League, teams must meet the following criteria before the season begins:</p>
+                <div class="grid-3" style="gap: 20px;">
+                    <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px;">
+                        <h4 style="color: var(--text-main); margin-bottom: 10px;">Roster Size</h4>
+                        <p class="text-muted" style="font-size: 0.9rem;">A minimum of 4 active players and up to 2 substitutes must be registered per team.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px;">
+                        <h4 style="color: var(--text-main); margin-bottom: 10px;">Age Limit</h4>
+                        <p class="text-muted" style="font-size: 0.9rem;">All registered competitive players must be at least 16 years of age by the start of the season.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px;">
+                        <h4 style="color: var(--text-main); margin-bottom: 10px;">Uniforms</h4>
+                        <p class="text-muted" style="font-size: 0.9rem;">Teams must have matching colored dark attire or official team jerseys for all matches.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5.5 League Registration -->
+    <section id="registration" style="background: var(--bg-glass);">
+        <div class="container fade-up">
+            <div class="glass-card text-center" style="max-width: 800px; margin: 0 auto; border: 2px solid var(--electric-blue); box-shadow: var(--glow-blue);">
+                <i data-lucide="clipboard-list" style="color: var(--electric-blue); width: 50px; height: 50px; margin-bottom: 20px;"></i>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-family: var(--font-heading); text-transform: uppercase;">League Registration</h2>
+                <p class="text-muted mb-4" style="font-size: 1.1rem;">Secure your spot in the arena. Registration is open for a limited time before the season commences. Sign your squad up and prepare for battle.</p>
+                
+                <div class="grid-2" style="text-align: left; margin-bottom: 30px; gap: 20px;">
+                    <div class="glass-card" style="padding: 20px; border-color: rgba(188, 19, 254, 0.3);">
+                        <h4 style="color: var(--neon-purple); margin-bottom: 10px; font-size: 1.2rem;">Early Bird</h4>
+                        <p style="font-size: 1.5rem; font-weight: bold; color: var(--text-main);">$200 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: normal;">per team</span></p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;"><i data-lucide="alert-circle" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 5px;"></i>Ends Dec 1st</p>
+                    </div>
+                    <div class="glass-card" style="padding: 20px; border-color: rgba(255, 10, 84, 0.3);">
+                        <h4 style="color: var(--laser-red); margin-bottom: 10px; font-size: 1.2rem;">Standard</h4>
+                        <p style="font-size: 1.5rem; font-weight: bold; color: var(--text-main);">$250 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: normal;">per team</span></p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;"><i data-lucide="alert-circle" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 5px;"></i>Ends Jan 10th</p>
+                    </div>
+                </div>
+
+                <a href="register.html" class="btn btn-primary pulse-anim" style="height: auto; padding: 15px 40px; font-size: 1.2rem; border-radius: 30px;">Start Registration</a>
             </div>
         </div>
     </section>
@@ -287,3 +612,4 @@
 </body>
 
 </html>
+

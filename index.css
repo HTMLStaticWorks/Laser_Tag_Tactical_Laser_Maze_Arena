@@ -213,6 +213,8 @@ section {
   border-radius: 16px;
   padding: 30px;
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
 .glass-card:hover {
@@ -253,7 +255,6 @@ section {
   display: flex;
   align-items: center;
   gap: 12px;
-  text-shadow: 0 0 10px var(--neon-purple);
 }
 
 .nav-links {
@@ -589,6 +590,7 @@ section {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: var(--bg-card);
+  overflow: hidden;
 }
 
 .no-gap .feature-card:last-child {

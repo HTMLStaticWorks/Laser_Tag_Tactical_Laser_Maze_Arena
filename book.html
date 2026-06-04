@@ -70,6 +70,10 @@
             z-index: 0;
         }
 
+        [data-theme='light'] .progress-bar::before {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
         .step {
             width: 40px;
             height: 40px;
@@ -142,6 +146,31 @@
         <div class="hero-overlay"></div>
         <div class="container text-center relative z-2 fade-up">
             <h1 class="hero-title">SECURE YOUR PASS</h1>
+        </div>
+    </section>
+
+    <!-- 1.5 Online Reservation Info -->
+    <section id="reservation-info">
+        <div class="container fade-up text-center">
+            <h2 class="section-title">Online Reservation</h2>
+            <p class="text-muted" style="max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">Welcome to the LazerX tactical booking system. Secure your mission slot online to guarantee your squad's deployment. Follow the steps below to configure your perfect session.</p>
+            <div class="grid-3" style="text-align: left;">
+                <div class="glass-card text-center">
+                    <i data-lucide="mouse-pointer-click" style="color: var(--electric-blue); width: 40px; height: 40px; margin-bottom: 15px;"></i>
+                    <h4 style="margin-bottom: 10px;">1. Select Mission</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">Choose from standard play, private parties, or tactical training.</p>
+                </div>
+                <div class="glass-card text-center" style="border-color: var(--neon-purple); box-shadow: var(--glow-purple);">
+                    <i data-lucide="calendar-clock" style="color: var(--neon-purple); width: 40px; height: 40px; margin-bottom: 15px;"></i>
+                    <h4 style="margin-bottom: 10px;">2. Pick Time</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">Lock in your date and time slot in our live scheduling grid.</p>
+                </div>
+                <div class="glass-card text-center">
+                    <i data-lucide="shield-check" style="color: var(--laser-red); width: 40px; height: 40px; margin-bottom: 15px;"></i>
+                    <h4 style="margin-bottom: 10px;">3. Confirm</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">Finalize your payment and prepare for intense combat.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -322,3 +351,4 @@
 </body>
 
 </html>
+

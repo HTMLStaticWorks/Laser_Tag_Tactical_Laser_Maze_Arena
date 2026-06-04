@@ -62,6 +62,7 @@
 
         .premium-title {
             font-size: 6rem;
+            line-height: 1.1;
             text-transform: uppercase;
             font-family: var(--font-heading);
             background: linear-gradient(to right, #fff, var(--electric-blue), var(--neon-purple));
@@ -364,18 +365,16 @@
     </section>
 
     <!-- Section 6: Futuristic CTA -->
-    <section id="cta-premium" style="position: relative;">
+    <section id="cta-premium" style="position: relative; padding: 120px 0 300px 0;">
         <img src="assets/booking_cyberpunk.png" alt="Abstract Background"
-            style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;"
-            class="parallax-bg">
+            style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; opacity: 0.6;">
         <div class="container text-center relative z-2 fade-up">
-            <div class="glass-panel" style="max-width: 800px; margin: 0 auto; background: var(--bg-card);">
-                <h2 style="font-size: 3rem; margin-bottom: 20px; text-shadow: var(--glow-blue);">THE GRID AWAITS</h2>
-                <p class="text-muted mb-4">Are you ready to experience the most advanced tactical laser maze on the
-                    planet? Lock in your session now.</p>
+            <div class="glass-panel" style="max-width: 800px; margin: 0 auto; background: rgba(15, 15, 20, 0.75); backdrop-filter: blur(24px); border: 1px solid rgba(0, 243, 255, 0.4); padding: 60px 40px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 0 30px rgba(0, 243, 255, 0.15);">
+                <h2 style="font-size: 3.5rem; margin-bottom: 25px; text-shadow: 0 0 20px rgba(0, 243, 255, 0.6); color: #fff; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 2px;">THE GRID AWAITS</h2>
+                <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.85); max-width: 600px; margin: 0 auto 40px;">Are you ready to experience the most advanced tactical laser maze on the planet? Lock in your session now.</p>
                 <div style="display: flex; gap: 20px; justify-content: center;">
                     <a href="book.html" class="btn btn-primary pulse-anim"
-                        style="padding: 15px 40px; border-radius: 30px;">
+                        style="padding: 18px 50px; border-radius: 30px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; box-shadow: var(--glow-purple);">
                         <i data-lucide="zap"></i> Book VIP Session
                     </a>
                 </div>
@@ -439,3 +438,4 @@
 </body>
 
 </html>
+
