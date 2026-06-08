@@ -1038,7 +1038,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 
 
-  .hero + section {
+  .hero + section:not(#arena-specs) {
     padding-top: 0 !important;
     margin-top: 0 !important;
   }
