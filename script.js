@@ -241,12 +241,31 @@ document.addEventListener("DOMContentLoaded", (event) => {
   
   if (menuToggle && menuWrapper) {
     menuToggle.addEventListener('click', () => {
+      // Fix mobile viewport bug
+      menuWrapper.style.height = window.innerHeight + 'px';
+      
       menuWrapper.classList.toggle('active');
       const icon = menuToggle.querySelector('i');
       if (icon.classList.contains('fa-bars')) {
         icon.classList.replace('fa-bars', 'fa-xmark');
       } else {
         icon.classList.replace('fa-xmark', 'fa-bars');
+      }
+    });
+
+    // Update height on resize when active
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        // Remove mobile-specific inline styles and classes on desktop
+        menuWrapper.style.height = '';
+        menuWrapper.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        if (icon && icon.classList.contains('fa-xmark')) {
+          icon.classList.replace('fa-xmark', 'fa-bars');
+        }
+      } else if (menuWrapper.classList.contains('active')) {
+        // Update height for mobile
+        menuWrapper.style.height = window.innerHeight + 'px';
       }
     });
 
